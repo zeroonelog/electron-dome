@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>METAPUNK</title>
+</head>
+
+<body>
+  <div class="main">
+    <h1>METAPUNK平台分发系统</h1>
+      <p>username</p>
+      <input type="text" value="" id="name" placeholder="用户名">
+      <p>password</p>
+      <input type="password" value="" id="password" placeholder="管理员密码">
+    <button class="default" size="default" type="submit" onclick="login()">进入系统</button>
+  </div>
+
+</body>
+<style>
+  body {
+    background-image: linear-gradient(to left, #CD853F, #CD69C9);
+  }
+
+  .main {
+    margin: 200px auto;
+    width: 280px;
+    text-align: center;
+  }
+  h1{
+    background-image: -webkit-linear-gradient(bottom,#fff7f4,#09093e,#fd0404);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  input{
+    height: 30px;
+    width: 200px;
+    border: 1px solid #fff;
+  }
+  button {
+    height: 40px;
+    width: 208px;
+    margin: 20px auto;
+    background: #ffb897;
+    border: 1px solid #fff;
+    font-weight: 600;
+  }
+  button:active{
+    background-color: #CD69C9;
+  }
+</style>
+<script type="text/javascript">
+  var electron = require("electron")
+  function login(){
+    let user = document.getElementById('name').value
+    let password = document.getElementById('password').value
+    console.log(user,password);
+    if(user == 'admin' && password == '123456')
+    electron.ipcRenderer.sendSync("onCloseWin")
+  }
+</script>
+</html>
