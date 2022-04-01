@@ -7,14 +7,15 @@
   "scripts": {
     "start": "electron ."
   },
-  "build":{
-    "win":{
-      "icon":"./logo.ico"
+  "build": {
+    "win": {
+      "icon": "./logo.ico"
     }
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^17.0.23",
     "electron": "^17.3.0"
   }
 }
