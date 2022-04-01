@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut ,ipcMain} = require('electron')
+const { app, BrowserWindow, globalShortcut, ipcMain } = require('electron')
 const electron = require('electron')
 
 /*获取electron窗体的菜单栏*/
@@ -45,7 +45,7 @@ function createWindow() {
   mainWindow.loadFile('index.html')
 
   // 打开开发者工具
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   // 当 window 被关闭，这个事件会被触发。
   mainWindow.on('closed', () => {
@@ -88,4 +88,8 @@ app.on('activate', () => {
 })
 ipcMain.on("onCloseWin", async (event, value) => {
   app.exit()
+});
+ipcMain.on("showModel", async (event, value) => {
+  dialog.showErrorBox('警告','账号或密码错误')
+  event.sender.send('downloadCall', null);
 });
